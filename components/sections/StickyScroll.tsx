@@ -23,22 +23,23 @@ const PANELS = [
 ]
 
 const MOBILE_PANELS = [...PANELS, ...PANELS]
-const AUTO_SPEED = 0.6 // px per frame
+const AUTO_SPEED = 0.6
 
 export default function StickyScroll() {
   const { t } = useTranslation('home')
-  const containerRef  = useRef<HTMLDivElement>(null)
-  const listRef       = useRef<HTMLDivElement>(null)
-  const panelRefs     = useRef<(HTMLDivElement | null)[]>([])
-  const rafRef        = useRef<number>()
+  const containerRef   = useRef<HTMLDivElement>(null)
+  const listRef        = useRef<HTMLDivElement>(null)
+  const panelRefs      = useRef<(HTMLDivElement | null)[]>([])
+  const contentRefs    = useRef<(HTMLDivElement | null)[]>([])
+  const rafRef         = useRef<number>()
   const [isMobile, setIsMobile] = useState(false)
 
   // mobile drag state
-  const mobileListRef  = useRef<HTMLDivElement>(null)
-  const offsetRef      = useRef(0)
-  const dragActiveRef  = useRef(false)
-  const dragStartXRef  = useRef(0)
-  const mobileRafRef   = useRef<number>()
+  const mobileListRef = useRef<HTMLDivElement>(null)
+  const offsetRef     = useRef(0)
+  const dragActiveRef = useRef(false)
+  const dragStartXRef = useRef(0)
+  const mobileRafRef  = useRef<number>()
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth <= 768)
@@ -52,14 +53,28 @@ export default function StickyScroll() {
     const container = containerRef.current
     const list      = listRef.current
     if (!container || !list) return
+
     const containerTop = container.getBoundingClientRect().top + window.scrollY
     const scrollable   = container.offsetHeight - window.innerHeight
     const progress     = Math.max(0, Math.min(1, (window.scrollY - containerTop) / scrollable))
+
     list.style.transform = `translateX(${-progress * 200}vw)`
+
+    // active panel index
+    let activeIdx = 0
     panelRefs.current.forEach((panel, i) => {
       if (!panel) return
       const threshold = i === 0 ? 0 : i / PANELS.length - 0.05
-      panel.classList.toggle('active', progress >= threshold)
+      const isActive = progress >= threshold
+      panel.classList.toggle('active', isActive)
+      if (isActive) activeIdx = i
+    })
+
+    // show only the active panel's content text
+    contentRefs.current.forEach((el, i) => {
+      if (!el) return
+      el.style.opacity = i === activeIdx ? '1' : '0'
+      el.style.filter  = i === activeIdx ? 'blur(0)' : 'blur(5px)'
     })
   }, [])
 
@@ -96,7 +111,6 @@ export default function StickyScroll() {
     return () => { if (mobileRafRef.current) cancelAnimationFrame(mobileRafRef.current) }
   }, [isMobile, mobileLoop])
 
-  // drag handlers
   const onDragStart = useCallback((clientX: number) => {
     dragActiveRef.current = true
     dragStartXRef.current = clientX
@@ -115,27 +129,15 @@ export default function StickyScroll() {
     el.style.transform = `translateX(${offsetRef.current}px)`
   }, [])
 
-  const onDragEnd = useCallback(() => {
-    dragActiveRef.current = false
-  }, [])
+  const onDragEnd = useCallback(() => { dragActiveRef.current = false }, [])
 
-  const panelStyle = (bg: string): React.CSSProperties => ({
+  const panelBgStyle = (bg: string): React.CSSProperties => ({
     backgroundImage: `url(${bg})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     position: 'relative',
     flexShrink: 0,
-  })
-
-  const contBox = (mobile: boolean): React.CSSProperties => ({
-    position: 'absolute',
-    bottom: mobile ? '50px' : '100px',
-    left: mobile ? '24px' : '100px',
-    display: 'flex',
-    flexDirection: 'column',
-    gap: mobile ? '6px' : '10px',
-    maxWidth: mobile ? 'calc(100% - 48px)' : undefined,
   })
 
   if (isMobile) {
@@ -158,9 +160,9 @@ export default function StickyScroll() {
             <div
               key={i}
               className="sticky-panel active"
-              style={{ ...panelStyle(panel.bg), width: '100vw', height: '100vh' }}
+              style={{ ...panelBgStyle(panel.bg), width: '100vw', height: '100vh' }}
             >
-              <div style={contBox(true)}>
+              <div style={{ position: 'absolute', bottom: '50px', left: '24px', display: 'flex', flexDirection: 'column', gap: '6px', maxWidth: 'calc(100% - 48px)' }}>
                 <h2
                   className="panel-content delay-title"
                   style={{ fontSize: 'clamp(28px, 7vw, 42px)', fontWeight: 600, lineHeight: 1.3, color: '#fff',
@@ -182,9 +184,13 @@ export default function StickyScroll() {
     )
   }
 
+  // ── Desktop: backgrounds slide, text fixed ──
   return (
     <div ref={containerRef} style={{ height: '400vh', position: 'relative', top: '-100px' }}>
-      <div style={{ height: '100vh', position: 'sticky', top: 0, overflow: 'hidden', display: 'flex' }}>
+      {/* sticky viewport */}
+      <div style={{ height: '100vh', position: 'sticky', top: 0, overflow: 'hidden' }}>
+
+        {/* background panels — slide horizontally */}
         <div
           ref={listRef}
           style={{ display: 'flex', width: '300vw', height: '100%', willChange: 'transform' }}
@@ -194,26 +200,58 @@ export default function StickyScroll() {
               key={i}
               ref={(el) => { panelRefs.current[i] = el }}
               className="sticky-panel"
-              style={{ ...panelStyle(panel.bg), width: '100vw', height: '100%' }}
+              style={{ ...panelBgStyle(panel.bg), width: '100vw', height: '100%' }}
+            />
+          ))}
+        </div>
+
+        {/* text overlay — fixed inside sticky, never clips */}
+        <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
+          {PANELS.map((panel, i) => (
+            <div
+              key={i}
+              ref={(el) => { contentRefs.current[i] = el }}
+              style={{
+                position: 'absolute',
+                bottom: '100px',
+                left: '100px',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '10px',
+                opacity: i === 0 ? 1 : 0,
+                filter: i === 0 ? 'blur(0)' : 'blur(5px)',
+                transition: 'opacity 0.8s ease, filter 0.8s ease',
+              }}
             >
-              <div className="cont-box" style={contBox(false)}>
-                <h2
-                  className="panel-content delay-title"
-                  style={{ fontSize: 'clamp(36px, 4.5vw, 60px)', fontWeight: 600, lineHeight: 1.3, color: '#fff',
-                    fontFamily: '"Antic Didone","NanumMyeongjo","Apple SD Gothic Neo","Malgun Gothic","Nanum Gothic","Noto Sans","sans-serif"' }}
-                >
-                  {t(panel.t1Key)}<br />{t(panel.t2Key)}
-                </h2>
-                <p
-                  className="panel-content delay-desc"
-                  style={{ fontSize: '18px', letterSpacing: '-0.5px', fontWeight: 500, lineHeight: 1.6, color: '#fff', whiteSpace: 'pre-line' }}
-                >
-                  {t(panel.dKey)}
-                </p>
-              </div>
+              <h2
+                style={{
+                  fontSize: 'clamp(36px, 4.5vw, 60px)',
+                  fontWeight: 600,
+                  lineHeight: 1.3,
+                  color: '#fff',
+                  fontFamily: '"Antic Didone","NanumMyeongjo","Apple SD Gothic Neo","Malgun Gothic","Nanum Gothic","Noto Sans","sans-serif"',
+                  margin: 0,
+                }}
+              >
+                {t(panel.t1Key)}<br />{t(panel.t2Key)}
+              </h2>
+              <p
+                style={{
+                  fontSize: '18px',
+                  letterSpacing: '-0.5px',
+                  fontWeight: 500,
+                  lineHeight: 1.6,
+                  color: '#fff',
+                  whiteSpace: 'pre-line',
+                  margin: 0,
+                }}
+              >
+                {t(panel.dKey)}
+              </p>
             </div>
           ))}
         </div>
+
       </div>
     </div>
   )
