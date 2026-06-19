@@ -20,7 +20,7 @@ export default function LocationContact() {
 
           <div className="reveal reveal-d1 h-64 md:h-96 overflow-hidden bg-border/20">
             <iframe
-              src="https://maps.google.com/maps?q=9.5534304,123.7632956&z=16&output=embed"
+              src="https://maps.google.com/maps?q=Kori+Spa+%EC%BD%94%EB%A6%AC%EC%8A%A4%ED%8C%8C&ll=9.5534304,123.7632956&z=17&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}
