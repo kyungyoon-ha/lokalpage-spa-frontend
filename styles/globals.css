@@ -125,6 +125,9 @@
 .sc-service .service-area:nth-child(1)::before { background:url("https://cdn.imweb.me/thumbnail/20251121/645545bd36fd8.jpeg") center/cover no-repeat; }
 .sc-service .service-area:nth-child(2)::before { background:url("https://cdn.imweb.me/thumbnail/20251121/b89b42b75532c.jpeg") center/cover no-repeat; }
 .sc-service .service-area:nth-child(3)::before { background:url("https://cdn.imweb.me/thumbnail/20251121/6bae1fa5b6af4.jpeg") center/cover no-repeat; }
+.sc-service.single { justify-content:center; }
+.sc-service.single .service-area { width:100%; }
+.sc-service .service-area.massage-card::before { background-image:inherit; background-size:cover; background-position:center; }
 .sc-service .service-area:hover::before { transform:scale(1.1); }
 .sc-service .service-area::after { content:""; width:100%; height:300%; display:block; position:absolute; top:0; left:0; background:linear-gradient(180deg,rgba(0,0,0,0.4) 0%,rgba(0,0,0,0.8) 100%); pointer-events:none; z-index:-1; transition:1.2s; }
 .sc-service .service-area:hover::after { height:100%; }

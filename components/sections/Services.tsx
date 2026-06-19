@@ -4,16 +4,22 @@ import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { servicesData } from '@/data/services'
 
-// service.html 그대로 — CSS는 globals.css에 있음
-// .on 클래스: wrapper blur(0)+opacity:1 / hover: wrapper bottom→50px, cont/btn fade-in
-
 const SERVICE_TITLES = ['FIRST DAY', 'PICK / DROP', 'LAST DAY']
+
+const MASSAGE_BG = 'https://cdn.imweb.me/thumbnail/20251121/b89b42b75532c.jpeg'
+
+const MASSAGE_LABEL: Record<string, { kor: string; title: string; desc: string }> = {
+  en:      { kor: 'Massage Menu', title: 'MASSAGE',     desc: 'Traditional Thai & Japanese techniques for full-body healing.' },
+  ja:      { kor: 'マッサージメニュー', title: 'MASSAGE', desc: '全身をほぐす伝統的なタイ・日本式テクニック。' },
+  'zh-CN': { kor: '按摩菜单',    title: 'MASSAGE',     desc: '全身放松的传统泰式与日式技法。' },
+  'zh-TW': { kor: '按摩菜單',    title: 'MASSAGE',     desc: '全身放鬆的傳統泰式與日式技法。' },
+}
 
 export default function Services() {
   const { t } = useTranslation('services')
-  const { locale } = useRouter()
-  const services = servicesData
+  const { locale = 'ko' } = useRouter()
   const sectionRef = useRef<HTMLDivElement>(null)
+  const isKo = locale === 'ko'
 
   useEffect(() => {
     const section = sectionRef.current
@@ -30,35 +36,54 @@ export default function Services() {
     )
     observer.observe(section)
     return () => observer.disconnect()
-  }, [])
+  }, [isKo])
 
   return (
     <section id="services" ref={sectionRef}>
-      <div className="sc-service">
-        {services.map((service, i) => {
-          const options = t(`items.${service.id}.options`, { returnObjects: true }) as string[]
-          return (
-            <div key={service.id} className="service-area">
-              <div className="wrapper">
-                <div className="title-wrap">
-                  <p className="kor">{t(`items.${service.id}.name`)}</p>
-                  <h6 className="title">{SERVICE_TITLES[i]}</h6>
-                </div>
-                <div className="cont-wrap">
-                  <p className="cont">{t(`items.${service.id}.description`)}</p>
-                  <div className="hash-box">
-                    {Array.isArray(options) && options.map((opt) => (
-                      <span key={opt} className="hash">{opt}</span>
-                    ))}
+      <div className={`sc-service${isKo ? '' : ' single'}`}>
+
+        {isKo ? (
+          servicesData.map((service, i) => {
+            const options = t(`items.${service.id}.options`, { returnObjects: true }) as string[]
+            return (
+              <div key={service.id} className="service-area">
+                <div className="wrapper">
+                  <div className="title-wrap">
+                    <p className="kor">{t(`items.${service.id}.name`)}</p>
+                    <h6 className="title">{SERVICE_TITLES[i]}</h6>
+                  </div>
+                  <div className="cont-wrap">
+                    <p className="cont">{t(`items.${service.id}.description`)}</p>
+                    <div className="hash-box">
+                      {Array.isArray(options) && options.map((opt) => (
+                        <span key={opt} className="hash">{opt}</span>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="btn-wrap">
+                    <Link href={`/services/${service.id}`} locale={locale}>{t('detail').toUpperCase()}</Link>
                   </div>
                 </div>
-                <div className="btn-wrap">
-                  <Link href={`/services/${service.id}`} locale={locale}>{t('detail').toUpperCase()}</Link>
-                </div>
+              </div>
+            )
+          })
+        ) : (
+          <div className="service-area massage-card" style={{ backgroundImage: `url(${MASSAGE_BG})` }}>
+            <div className="wrapper">
+              <div className="title-wrap">
+                <p className="kor">{MASSAGE_LABEL[locale]?.kor ?? 'Massage Menu'}</p>
+                <h6 className="title">{MASSAGE_LABEL[locale]?.title ?? 'MASSAGE'}</h6>
+              </div>
+              <div className="cont-wrap">
+                <p className="cont">{MASSAGE_LABEL[locale]?.desc ?? ''}</p>
+              </div>
+              <div className="btn-wrap">
+                <Link href="/services/massage" locale={locale}>VIEW MENU</Link>
               </div>
             </div>
-          )
-        })}
+          </div>
+        )}
+
       </div>
     </section>
   )
