@@ -226,3 +226,18 @@
   50% { opacity: 0.7; transform: scaleY(1.3); }
 }
 .scroll-indicator { animation: scrollPulse 2s ease-in-out infinite; transform-origin: top; }
+
+/* ── Service detail bottom bar ── */
+.service-bottom-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.service-bottom-bar .bar-text { display: flex; align-items: center; gap: 20px; min-width: 0; }
+.service-bottom-bar .bar-name { font-size: clamp(18px, 3vw, 24px); font-weight: 700; color: #fff; letter-spacing: -0.3px; white-space: nowrap; }
+.service-bottom-bar .bar-tagline { font-size: 14px; color: rgba(255,255,255,0.55); letter-spacing: -0.2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.service-bottom-bar .bar-btn { background: #a89060; color: #1a1714; padding: 14px 36px; font-family: "Marcellus",serif; font-size: 14px; letter-spacing: 0.2em; text-decoration: none; white-space: nowrap; transition: background 0.3s; flex-shrink: 0; }
+
+@media (max-width: 640px) {
+  .service-bottom-bar { flex-direction: column; align-items: stretch; gap: 10px; }
+  .service-bottom-bar .bar-text { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .service-bottom-bar .bar-name { font-size: 18px; }
+  .service-bottom-bar .bar-tagline { font-size: 13px; }
+  .service-bottom-bar .bar-btn { text-align: center; padding: 12px 20px; }
+}
