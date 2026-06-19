@@ -132,8 +132,9 @@
 .sc-service .service-area::after { content:""; width:100%; height:300%; display:block; position:absolute; top:0; left:0; background:linear-gradient(180deg,rgba(0,0,0,0.4) 0%,rgba(0,0,0,0.8) 100%); pointer-events:none; z-index:-1; transition:1.2s; }
 .sc-service .service-area:hover::after { height:100%; }
 .sc-service .service-area .wrapper { position:absolute; bottom:-130px; left:50px; width:calc(100% - 100px); filter:blur(10px); transition:1.2s; opacity:0; }
-.sc-service .service-area.on .wrapper { filter:blur(0px); opacity:1; }
-.sc-service .service-area:hover .wrapper { bottom:50px; }
+.sc-service .service-area.on .wrapper { filter:blur(0px); opacity:1; bottom:50px; }
+.sc-service .service-area.on .cont-wrap { opacity:1; }
+.sc-service .service-area.on .btn-wrap { opacity:1; }
 .sc-service .service-area .title-wrap,.sc-service .service-area .cont-wrap,.sc-service .service-area .btn-wrap { color:#fff; z-index:10; }
 .sc-service .service-area .title-wrap { transition:0.8s; }
 .sc-service .service-area .title-wrap .kor { font-size:20px; font-weight:600; letter-spacing:-0.5px; }
