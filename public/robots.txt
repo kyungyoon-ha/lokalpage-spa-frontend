@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.korispa.com
+
+# Sitemaps
+Sitemap: https://www.korispa.com/sitemap.xml
