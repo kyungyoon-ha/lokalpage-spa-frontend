@@ -20,7 +20,7 @@ export default function LocationContact() {
 
           <div className="reveal reveal-d1 h-64 md:h-96 overflow-hidden bg-border/20">
             <iframe
-              src="https://maps.google.com/maps?q=Panglao+Bohol+Philippines&output=embed"
+              src="https://maps.google.com/maps?q=9.5534304,123.7632956&z=16&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}
