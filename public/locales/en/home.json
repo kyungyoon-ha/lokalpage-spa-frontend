@@ -1,0 +1,41 @@
+{
+  "hero": {
+    "tagline": "Time For Your Mind",
+    "headline1": "Where Space Itself",
+    "headline2": "Becomes Your Rest",
+    "cta": "Book Now"
+  },
+  "sticky": {
+    "p1_t1": "In quiet stillness,",
+    "p1_t2": "time to free your mind",
+    "p1_desc": "Japanese tradition meets the nature of Bohol\nin one singular healing space",
+    "p2_t1": "Where space itself",
+    "p2_t2": "becomes your rest",
+    "p2_desc": "The warmth of wood grain, the calm breath\nrefined healing space in the Japanese spirit",
+    "p3_t1": "For each person,",
+    "p3_t2": "wholehearted care",
+    "p3_desc": "In the spirit of omotenashi (おもてなし)\npersonalized 1:1 care for your body and mind"
+  },
+  "philosophy": {
+    "title": "Our Philosophy",
+    "subtitle": "Omotenashi & Wabi-Sabi",
+    "omotenashi_title": "Omotenashi",
+    "omotenashi_subtitle": "Japanese Traditional Hospitality",
+    "omotenashi_desc": "Wholehearted hospitality with genuine care. Every service at KORISPA begins with personalized attention tailored to each individual guest.",
+    "wabisabi_title": "Wabi-Sabi",
+    "wabisabi_subtitle": "Beauty in Imperfection",
+    "wabisabi_desc": "Beauty in imperfection. We create a space where you can accept yourself as you are and simply rest."
+  },
+  "gallery": {
+    "title": "Our Space"
+  },
+  "location": {
+    "title": "Find Us",
+    "hours_title": "Opening Hours",
+    "hours": {
+      "weekday": "Weekdays  10:00 - 22:00",
+      "weekend": "Weekends  10:00 - 21:00"
+    },
+    "contact_title": "Contact Us Directly"
+  }
+}

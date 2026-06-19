@@ -1,0 +1,41 @@
+{
+  "hero": {
+    "tagline": "为心灵而留的时间",
+    "headline1": "让空间本身",
+    "headline2": "成为您的休憩",
+    "cta": "立即预约"
+  },
+  "sticky": {
+    "p1_t1": "在宁静中，",
+    "p1_t2": "让心灵自由呼吸",
+    "p1_desc": "日本传统细腻与薄荷岛自然相遇\n独一无二的疗愈空间",
+    "p2_t1": "让空间本身",
+    "p2_t2": "成为您的休憩",
+    "p2_desc": "木纹的温暖，平静的气息\n充满日式美学的精致疗愈空间",
+    "p3_t1": "为每一位，",
+    "p3_t2": "用心守护",
+    "p3_desc": "以款待之道（おもてなし）的精神\n为您身心定制1:1专属护理"
+  },
+  "philosophy": {
+    "title": "我们的哲学",
+    "subtitle": "款待之道与侘寂",
+    "omotenashi_title": "款待之道",
+    "omotenashi_subtitle": "日本传统款待之道",
+    "omotenashi_desc": "真诚的款待与关怀。KORISPA的每项服务都从为每位客人量身定制的专属护理开始。",
+    "wabisabi_title": "侘寂",
+    "wabisabi_subtitle": "残缺之美",
+    "wabisabi_desc": "不完美中的美。我们为您创造一个能够接受本真自我、静心休憩的空间。"
+  },
+  "gallery": {
+    "title": "空间"
+  },
+  "location": {
+    "title": "找到我们",
+    "hours_title": "营业时间",
+    "hours": {
+      "weekday": "工作日  10:00 - 22:00",
+      "weekend": "周末  10:00 - 21:00"
+    },
+    "contact_title": "直接联系我们"
+  }
+}

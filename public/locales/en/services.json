@@ -1,0 +1,25 @@
+{
+  "title": "Services",
+  "subtitle": "Rest tailored to your journey",
+  "detail": "Learn More",
+  "items": {
+    "firstday": {
+      "name": "First Day Pack",
+      "tagline": "Airport Pickup + 0.5 Night Stay",
+      "description": "Intensive care program to release travel fatigue on your arrival day",
+      "options": ["90 min", "120 min"]
+    },
+    "pickdrop": {
+      "name": "Pick & Drop Package",
+      "tagline": "Hotel Pickup & Drop Premium",
+      "description": "Premium door-to-door service with hotel pickup and drop-off",
+      "options": ["60 min", "90 min", "120 min"]
+    },
+    "departure": {
+      "name": "Departure Package",
+      "tagline": "Final Healing Before Departure",
+      "description": "Final healing before your flight, complete your journey with lounge access",
+      "options": ["90 min", "120 min"]
+    }
+  }
+}

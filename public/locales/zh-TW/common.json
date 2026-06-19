@@ -1,0 +1,27 @@
+{
+  "nav": {
+    "services": "服務",
+    "philosophy": "品牌",
+    "gallery": "空間",
+    "location": "位置",
+    "reservation": "預約"
+  },
+  "language": {
+    "ko": "KO",
+    "en": "EN",
+    "ja": "JP",
+    "zh-CN": "简",
+    "zh-TW": "繁"
+  },
+  "contact": {
+    "title": "聯絡我們",
+    "kakao": "KakaoTalk",
+    "messenger": "Messenger",
+    "whatsapp": "WhatsApp",
+    "line": "LINE"
+  },
+  "footer": {
+    "copyright": "© 2026 KORISPA. 版權所有。",
+    "address": "Kori Spa, Purok 5, Barangay Danao, Panglao, Bohol"
+  }
+}
