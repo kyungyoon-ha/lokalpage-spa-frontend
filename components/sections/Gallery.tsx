@@ -56,7 +56,7 @@ export default function Gallery() {
   }, [])
 
   const galleryTitle = t('gallery.title')
-  const subText = `공간은 말이 없지만, 마음을 움직입니다.\n나무의 온도, 종이의 질감, 촛불의 흔들림 속에서\n자연과 가장 가까운 휴식을 경험하세요.`
+  const subText = t('gallery.sub')
 
   return (
     <section id="gallery" style={{ width: '100%', position: 'relative' }}>

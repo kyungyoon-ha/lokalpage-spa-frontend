@@ -6,7 +6,7 @@ import { servicesData } from '@/data/services'
 
 const SERVICE_TITLES = ['FIRST DAY', 'PICK / DROP', 'LAST DAY']
 
-const MASSAGE_BG = 'https://cdn.imweb.me/thumbnail/20251121/b89b42b75532c.jpeg'
+const MASSAGE_BG = 'https://cdn.imweb.me/thumbnail/20251121/a7668c9f872b9.png'
 
 const MASSAGE_LABEL: Record<string, { kor: string; title: string; desc: string }> = {
   en:      { kor: 'Massage Menu',      title: 'MASSAGE', desc: 'Traditional Thai & Japanese techniques for full-body healing.' },
@@ -84,28 +84,57 @@ export default function Services() {
           })
         ) : (
           <div
-            className="service-area massage-card"
-            style={{ backgroundImage: `url(${MASSAGE_BG})`, cursor: 'pointer' }}
+            style={{
+              width: '100%',
+              height: 'calc(100vh - 80px)',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '32px',
+              background: '#1a1714',
+              cursor: 'pointer',
+              position: 'relative',
+              overflow: 'hidden',
+            }}
             onClick={() => navigate('/services/massage')}
           >
-            <div className="wrapper">
-              <div className="title-wrap">
-                <p className="kor">{MASSAGE_LABEL[locale]?.kor ?? 'Massage Menu'}</p>
-                <h6 className="title">{MASSAGE_LABEL[locale]?.title ?? 'MASSAGE'}</h6>
-              </div>
-              <div className="cont-wrap">
-                <p className="cont">{MASSAGE_LABEL[locale]?.desc ?? ''}</p>
-              </div>
-              <div className="btn-wrap">
-                <Link
-                  href="/services/massage"
-                  locale={locale}
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  VIEW MENU
-                </Link>
-              </div>
+            {/* subtle background */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={MASSAGE_BG}
+              alt=""
+              style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.25 }}
+            />
+            <div style={{ position: 'relative', textAlign: 'center', color: '#f8f5f0' }}>
+              <p style={{ fontFamily: '"Marcellus",serif', fontSize: '13px', letterSpacing: '0.3em', color: 'rgba(248,245,240,0.5)', marginBottom: '16px' }}>
+                KORISPA · MENU
+              </p>
+              <h2 style={{ fontFamily: '"Marcellus",serif', fontSize: 'clamp(40px,6vw,80px)', fontWeight: 400, letterSpacing: '0.1em', lineHeight: 1.1 }}>
+                MASSAGE
+              </h2>
+              <p style={{ fontSize: '14px', color: 'rgba(248,245,240,0.6)', marginTop: '16px', letterSpacing: '0.05em' }}>
+                {MASSAGE_LABEL[locale]?.desc ?? ''}
+              </p>
             </div>
+            <Link
+              href="/services/massage"
+              locale={locale}
+              onClick={(e) => e.stopPropagation()}
+              style={{
+                position: 'relative',
+                border: '1px solid rgba(248,245,240,0.4)',
+                color: '#f8f5f0',
+                padding: '14px 48px',
+                fontFamily: '"Marcellus",serif',
+                fontSize: '13px',
+                letterSpacing: '0.25em',
+                textDecoration: 'none',
+                transition: 'all 0.3s',
+              }}
+            >
+              VIEW MENU
+            </Link>
           </div>
         )}
 

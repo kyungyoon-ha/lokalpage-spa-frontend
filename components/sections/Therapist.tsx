@@ -1,14 +1,14 @@
 import { useEffect, useRef } from 'react'
-
-// about-4.html 그대로 — CSS는 globals.css (.sc-therapist)
+import { useTranslation } from 'next-i18next'
 
 export default function Therapist() {
+  const { t } = useTranslation('home')
   const sectionRef  = useRef<HTMLDivElement>(null)
   const imgBoxRef   = useRef<HTMLDivElement>(null)
   const contAreaRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const section  = sectionRef.current
+    const section = sectionRef.current
     if (!section) return
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -36,10 +36,8 @@ export default function Therapist() {
         <div className="cont-area" ref={contAreaRef}>
           <div className="text-wrap">
             <p className="therapist">OUR THERAPIST</p>
-            <p className="sub">
-              고객을 손님이 아닌 &apos;인연&apos;으로 대합니다.<br />
-              오랜 훈련과 따뜻한 마음으로<br />
-              당신의 하루를 부드럽게 풀어드립니다.
+            <p className="sub" style={{ whiteSpace: 'pre-line' }}>
+              {t('therapist.sub')}
             </p>
           </div>
           <div className="slide-wrap">

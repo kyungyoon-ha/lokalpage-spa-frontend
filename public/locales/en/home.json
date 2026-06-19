@@ -27,7 +27,8 @@
     "wabisabi_desc": "Beauty in imperfection. We create a space where you can accept yourself as you are and simply rest."
   },
   "gallery": {
-    "title": "Our Space"
+    "title": "Our Space",
+    "sub": "Space needs no words to move the heart.\nIn the warmth of wood, the texture of paper, the flicker of candlelight,\nexperience rest closest to nature."
   },
   "location": {
     "title": "Find Us",
@@ -37,5 +38,15 @@
       "weekend": "Weekends  10:00 - 21:00"
     },
     "contact_title": "Contact Us Directly"
+  },
+  "about": {
+    "title1": "Quietly Healing",
+    "title1_em": "Within",
+    "title2": "Time For Your",
+    "title2_em": "Mind",
+    "sub": "KORISPA is not just a space for your body,\nbut a time for your mind."
+  },
+  "therapist": {
+    "sub": "We treat every guest not as a customer, but as a cherished connection.\nWith years of training and a warm heart,\nwe gently ease your day."
   }
 }

@@ -1,9 +1,8 @@
 import { useEffect, useRef } from 'react'
-
-// about-1.html 그대로 구현
-// .on: filter:blur(0)+opacity:1+marginTop:0  (blur+fade+slide-up)
+import { useTranslation } from 'next-i18next'
 
 export default function About() {
+  const { t } = useTranslation('home')
   const sectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -25,34 +24,30 @@ export default function About() {
 
   return (
     <div ref={sectionRef} className="sc-about">
-      {/* 90° rotated ABOUT label */}
       <div className="about-area">
         <span>ABOUT</span>
       </div>
 
       <div className="wrapper">
-        {/* Large image — 70% width */}
         <div className="img-area">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="https://cdn.imweb.me/thumbnail/20251121/57455cab81194.png" alt="KORISPA space" />
         </div>
 
-        {/* Right content: vertical title + sub text */}
         <div className="cont-area">
           <div className="title-box">
             <div className="line" />
             <h3 className="main-text">
-              조용히 스며드는 <span>치유</span>
+              {t('about.title1')} <span>{t('about.title1_em')}</span>
             </h3>
             <div className="line" />
             <h3 className="main-text">
-              마음을 위한 <span>시간</span>
+              {t('about.title2')} <span>{t('about.title2_em')}</span>
             </h3>
             <div className="line" />
           </div>
-          <p className="sub-text">
-            코리 스파는 몸을 위한 공간이 아닌,<br />
-            마음을 위한 시간이 되기를 바랍니다.
+          <p className="sub-text" style={{ whiteSpace: 'pre-line' }}>
+            {t('about.sub')}
           </p>
         </div>
       </div>
