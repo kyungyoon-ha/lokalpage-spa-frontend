@@ -1,0 +1,140 @@
+<script>
+  $(function () {
+    const therapisttargets = [
+      ".sc-therapist .img-box",
+      ".sc-therapist .cont-area",
+    ];
+
+    therapisttargets.forEach((sel) => {
+      ScrollTrigger.create({
+        trigger: ".sc-therapist",
+        start: "00% 40%",
+        end: "200% 100%",
+        //markers:true,
+        toggleClass: { targets: sel, className: "on" },
+      });
+    });
+  });
+</script>
+
+<style>
+  @media (max-width: 994px) {
+    .sc-therapist {
+      width: calc(100% - 30px) !important;
+      flex-direction: column;
+      margin: 80px auto !important;
+      gap: 30px !important;
+    }
+    .sc-therapist .img-box {
+      width: 100% !important;
+    }
+    .sc-therapist .cont-area {
+      width: 100% !important;
+      justify-content: flex-start !important;
+      gap: 30px;
+    }
+    .sc-therapist .cont-area .text-wrap .therapist {
+      font-size: 14px !important;
+      text-align: center;
+    }
+    .sc-therapist .cont-area .text-wrap .sub {
+      font-size: 16px !important;
+      margin-top: 30px !important;
+      text-align: center;
+    }
+
+    .sc-therapist .cont-area .slide-wrap {
+      display: flex;
+      gap: 10px;
+      justify-content: space-between;
+    }
+  }
+
+  .sc-therapist {
+    width: calc(100% - 300px);
+    display: flex;
+    margin: 200px auto;
+    gap: 5%;
+    justify-content: space-between;
+  }
+  .sc-therapist .img-box {
+    width: 50%;
+    filter: blur(10px);
+    transition: 1.2s;
+    opacity: 0;
+    margin-top: 100px;
+  }
+  .sc-therapist .img-box.on {
+    filter: blur(0px);
+    margin-top: 0;
+    opacity: 1;
+  }
+  .sc-therapist .img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .sc-therapist .cont-area {
+    width: 45%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    filter: blur(10px);
+    transition: 1.2s;
+    opacity: 0;
+    margin-top: 100px;
+  }
+  .sc-therapist .cont-area.on {
+    filter: blur(0px);
+    margin-top: 0;
+    opacity: 1;
+  }
+  .sc-therapist .cont-area .text-wrap .therapist {
+    font-family: "Marcellus", serif;
+    font-size: 16px;
+    text-decoration: underline;
+    color: #2d2618;
+  }
+  .sc-therapist .cont-area .text-wrap .sub {
+    font-size: 18px;
+    letter-spacing: -0.5px;
+    line-height: 1.6;
+    margin-top: 50px;
+    color: #2d2618;
+  }
+
+  .sc-therapist .cont-area .slide-wrap {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+  }
+  .sc-therapist .cont-area .slide-wrap img {
+    width: calc((100% - 20px) / 3);
+  }
+</style>
+
+<div class="sc-therapist">
+  <div class="img-box">
+    <img src="https://cdn.imweb.me/thumbnail/20251121/77335644c50d0.png" />
+  </div>
+
+  <div class="cont-area">
+    <div class="text-wrap">
+      <p class="therapist">OUR THERAPIST</p>
+      <p class="sub">
+        고객을 손님이 아닌 '인연'으로 대합니다.<br />
+        오랜 훈련과 따뜻한 마음으로<br />
+        당신의 하루를 부드럽게 풀어드립니다.
+      </p>
+
+      <p></p>
+    </div>
+
+    <div class="slide-wrap">
+      <img src="https://cdn.imweb.me/thumbnail/20251121/91ac16434dc34.png" />
+      <img src="https://cdn.imweb.me/thumbnail/20251121/7c713766b6c3e.png" />
+      <img src="https://cdn.imweb.me/thumbnail/20251121/a83e33be5ed44.png" />
+    </div>
+  </div>
+</div>

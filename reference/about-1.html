@@ -1,0 +1,191 @@
+<script>
+  $(function () {
+    const abouttargets = [
+      ".sc-about .about-area",
+      ".sc-about .wrapper .cont-area .title-box",
+      ".sc-about .cont-area .sub-text",
+      ".sc-about .wrapper .img-area",
+    ];
+
+    abouttargets.forEach((sel) => {
+      ScrollTrigger.create({
+        trigger: ".sc-about",
+        start: "00% 40%",
+        end: "200% 100%",
+        //markers:true,
+        toggleClass: { targets: sel, className: "on" },
+      });
+    });
+  });
+</script>
+
+<style>
+  @media (max-width: 994px) {
+    .sc-about {
+      width: calc(100% - 30px) !important;
+      margin: 80px auto !important;
+    }
+    .sc-about .about-area {
+      transform: rotate(0) translate(-50%, 0) !important;
+      top: -20px !important;
+      left: 50% !important;
+    }
+    .sc-about .about-area span {
+      font-size: 14px !important;
+    }
+    .sc-about .wrapper {
+      width: 100% !important;
+      flex-direction: column;
+      gap: 30px !important;
+      margin-top: 30px;
+    }
+    .sc-about .wrapper .img-area {
+      width: 100% !important;
+    }
+    .sc-about .wrapper .cont-area {
+      gap: 15px !important;
+    }
+    .sc-about .wrapper .cont-area .title-box {
+      flex-direction: column;
+      align-items: center;
+    }
+    .sc-about .wrapper .cont-area .title-box .main-text {
+      font-size: 26px !important;
+      writing-mode: horizontal-tb !important;
+      padding: 6px 0 !important;
+    }
+    .sc-about .wrapper .cont-area .title-box .line {
+      width: 240px !important;
+      height: 1px;
+    }
+    .sc-about .cont-area .sub-text {
+      font-size: 16px !important;
+      margin-bottom: 0px !important;
+      text-align: center;
+    }
+  }
+
+  .sc-about {
+    width: calc(100% - 200px);
+    margin: 120px auto;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .sc-about .about-area {
+    font-family: "Marcellus", serif;
+    color: #bcab91;
+    opacity: 0.5;
+    transform: rotate(90deg) translate(30%, 70%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    filter: blur(10px);
+    transition: 1.2s;
+    opacity: 0;
+  }
+  .sc-about .about-area.on {
+    filter: blur(0px);
+    opacity: 1;
+  }
+
+  .sc-about .wrapper {
+    width: 92%;
+    gap: 100px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .sc-about .wrapper .img-area {
+    width: 70%;
+    filter: blur(10px);
+    transition: 1.2s;
+    opacity: 0;
+    margin-top: 60px;
+  }
+  .sc-about .wrapper .img-area.on {
+    filter: blur(0px);
+    opacity: 1;
+    margin-top: 0;
+  }
+
+  .sc-about .wrapper .img-area img {
+    width: 100%;
+  }
+
+  .sc-about .wrapper .cont-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .sc-about .wrapper .cont-area .title-box {
+    display: flex;
+    filter: blur(10px);
+    transition: 1.2s;
+    opacity: 0;
+    margin-top: 60px;
+  }
+  .sc-about .wrapper .cont-area .title-box.on {
+    filter: blur(0px);
+    opacity: 1;
+    margin-top: 0px;
+  }
+  .sc-about .wrapper .cont-area .title-box .main-text {
+    font-size: 36px;
+    writing-mode: vertical-rl;
+    margin: 0;
+    padding: 0 10px;
+    font-weight: 600;
+  }
+  .sc-about .wrapper .cont-area .title-box .line {
+    width: 1px;
+    background: #000;
+    display: block;
+    opacity: 0.3;
+  }
+  .sc-about .wrapper .cont-area .title-box span {
+    font-weight: 800;
+  }
+
+  .sc-about .cont-area .sub-text {
+    font-size: 18px;
+    letter-spacing: -0.5px;
+    font-weight: 500;
+    line-height: 1.6;
+    margin-bottom: 60px;
+    filter: blur(10px);
+    transition: 1.2s;
+    opacity: 0;
+  }
+  .sc-about .cont-area .sub-text.on {
+    filter: blur(0px);
+    opacity: 1;
+  }
+</style>
+
+<div class="sc-about">
+  <div class="about-area">
+    <span>ABOUT</span>
+  </div>
+
+  <div class="wrapper">
+    <div class="img-area">
+      <img src="https://cdn.imweb.me/thumbnail/20251121/57455cab81194.png" />
+    </div>
+
+    <div class="cont-area">
+      <div class="title-box">
+        <div class="line"></div>
+        <h3 class="main-text">조용히 스며드는 <span>치유</span></h3>
+        <div class="line"></div>
+        <h3 class="main-text">마음을 위한 <span>시간</span></h3>
+        <div class="line"></div>
+      </div>
+      <p class="sub-text">
+        코리 스파는 몸을 위한 공간이 아닌,<br />
+        마음을 위한 시간이 되기를 바랍니다.
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,153 @@
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+
+<script>
+  $(function () {
+    //가로 스크롤
+    gsap.set(".reason-list", { x: 0 });
+
+    mainmotion = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".sticky-here",
+        start: "0 0%",
+        end: "100% 100%",
+        scrub: 2,
+      },
+    });
+
+    mainmotion.to(".reason-list", { x: "-200vw" });
+
+    //모션
+    document.querySelectorAll(".reason-wrap").forEach((wrap, i) => {
+      ScrollTrigger.create({
+        trigger: ".sticky-here",
+        start: `${i * 15 - 1}% 0%`, // i=0 → 0%, i=1 → 20%, i=2 → 40% ...
+        end: "100% 100%",
+        //markers:true,
+        toggleClass: { targets: wrap, className: "on" },
+      });
+    });
+  });
+</script>
+<style>
+  .sticky-here {
+    width: 100%;
+    height: 400vh;
+    position: relative;
+    top: -100px;
+    left: 0;
+  }
+  .sticky-here .wrapper {
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: justify-content;
+  }
+  .reason-list {
+    display: flex;
+    width: 300vw;
+    height: 100%;
+  }
+
+  .reason-wrap {
+    width: 100vw;
+    height: 100%;
+    position: relative;
+    background-size: 100% 100% !important;
+    transition: 2.4s ease-out;
+  }
+  .reason-wrap.on {
+    background-size: 120% 120% !important;
+  }
+  .reason-wrap:nth-child(1) {
+    background: url("https://cdn.imweb.me/thumbnail/20251121/0f8e75828acda.png")
+      center no-repeat;
+  }
+  .reason-wrap:nth-child(2) {
+    background: url("https://cdn.imweb.me/thumbnail/20251121/08292edcc0168.png")
+      center no-repeat;
+  }
+  .reason-wrap:nth-child(3) {
+    background: url("https://cdn.imweb.me/thumbnail/20251121/739dba9a3aaa6.png")
+      center no-repeat;
+  }
+  .reason-wrap .cont-box {
+    position: absolute;
+    bottom: 100px;
+    left: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    opacity: 0;
+    transition: 1.2s;
+    filter: blur(10px);
+  }
+  .reason-wrap .cont-box.on {
+    opacity: 1;
+    transform: translate(0, 0px);
+  }
+  .reason-wrap .cont-box .title {
+    font-size: 60px;
+    font-weight: 600;
+    line-height: 1.3;
+    font-family:
+      "Antic Didone", "NanumMyeongjo", "Apple SD Gothic Neo", "Malgun Gothic",
+      "Nanum Gothic", "Noto Sans", "sans-serif";
+  }
+  .reason-wrap .cont-box .text {
+    font-size: 18px;
+    letter-spacing: -0.5px;
+    font-weight: 500;
+    line-height: 1.6;
+  }
+
+  .reason-wrap.on .cont-box {
+    opacity: 1;
+    filter: blur(0px);
+  }
+</style>
+
+<div class="sticky-here">
+  <div class="wrapper">
+    <div class="group-reason">
+      <div class="reason-list">
+        <div class="reason-wrap">
+          <div class="cont-box">
+            <h6 class="title">고요함 속에서,<br />마음이 풀리는 시간</h6>
+            <p class="text">
+              일본 전통의 섬세함과 보홀의 자연이 만나는<br />단 하나의 힐링
+              스페이스
+            </p>
+          </div>
+        </div>
+
+        <div class="reason-wrap">
+          <div class="cont-box">
+            <h6 class="title">공간 그 자체가<br />휴식이 되도록</h6>
+            <p class="text">
+              나무결의 따뜻함, 차분한 숨결<br />일본 감성 그대로의 정제된 치유
+              공간
+            </p>
+          </div>
+        </div>
+
+        <div class="reason-wrap">
+          <div class="cont-box">
+            <h6 class="title">한 사람,<br />한 사람을 위한 정성</h6>
+            <p class="text">
+              일본식 '오모테나시(おもてなし)' 정신으로<br />고객의 몸과 마음을
+              살피는 1:1 맞춤 케어
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

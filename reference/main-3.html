@@ -1,0 +1,144 @@
+<script>
+  $(function () {
+    const opentargets = [
+      ".sc-open .logo-img",
+      ".sc-open .cont-wrap .open-text",
+      ".sc-open .cont-wrap .sub-text",
+      ".sc-open .cont-wrap .date-text",
+      ".sc-open .btn-wrap a",
+    ];
+
+    opentargets.forEach((sel) => {
+      ScrollTrigger.create({
+        trigger: ".sc-open",
+        start: "-10% 40%",
+        end: "200% 100%",
+        //markers:true,
+        toggleClass: { targets: sel, className: "on" },
+      });
+    });
+  });
+</script>
+
+<style>
+  @media (max-width: 994px) {
+    .sc-open {
+      height: 90vh !important;
+    }
+    .sc-open .logo-img {
+      width: 40vw !important;
+    }
+    .sc-open .cont-wrap .open-text {
+      font-size: 50px !important;
+    }
+    .sc-open .cont-wrap .sub-text {
+      font-size: 18px !important;
+    }
+    .sc-open .cont-wrap .date-text {
+      font-size: 16px !important;
+    }
+    .sc-open .btn-wrap a {
+      font-size: 16px !important;
+      width: 100px !important;
+      height: 100px !important;
+      opacity: 0;
+      filter: blur(10px);
+      transition: 1.2s;
+    }
+  }
+
+  .sc-open {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .sc-open .logo-img {
+    width: 250px;
+    margin-top: 10vh;
+    filter: blur(10px);
+    transition: 1.2s;
+    opacity: 0;
+  }
+  .sc-open .logo-img.on {
+    filter: blur(0px);
+    opacity: 1;
+  }
+  .sc-open .logo-img img {
+    width: 100%;
+  }
+  .sc-open .cont-wrap {
+    text-align: center;
+    color: #bcab91;
+    padding: 8vh 0 13vh;
+  }
+  .sc-open .cont-wrap .open-text {
+    font-family: "Marcellus", serif;
+    font-size: 110px;
+    filter: blur(10px);
+    transition: 1.2s;
+    opacity: 0;
+  }
+  .sc-open .cont-wrap .open-text.on,
+  .sc-open .cont-wrap .sub-text.on,
+  .sc-open .cont-wrap .date-text.on {
+    filter: blur(0px);
+    opacity: 1;
+  }
+  .sc-open .cont-wrap .sub-text {
+    font-size: 22px;
+    font-weight: 600;
+    filter: blur(10px);
+    transition: 1.2s;
+    opacity: 0;
+  }
+  .sc-open .cont-wrap .date-text {
+    font-family: "Marcellus", serif;
+    font-size: 20px;
+    opacity: 0.6;
+    filter: blur(10px);
+    transition: 1.2s;
+    opacity: 0;
+  }
+
+  .sc-open .btn-wrap a {
+    font-family: "Marcellus", serif;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #bcab91;
+    color: #bcab91;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    opacity: 0;
+    filter: blur(10px);
+    transition: 1.2s;
+  }
+  .sc-open .btn-wrap a.on {
+    filter: blur(0px);
+    opacity: 0.5;
+  }
+  .sc-open .btn-wrap a:hover {
+    opacity: 1;
+  }
+</style>
+
+<!-- <div class="sc-open">
+    <div class="logo-img">
+      <img src="https://cdn.imweb.me/thumbnail/20251013/96c23aeb39604.png">
+    </div>
+  
+    <div class="cont-wrap">
+      <p class="open-text">GRAND OPEN</p>
+      <p class="sub-text">곧, 보홀에서 당신을 기다립니다</p>
+      <p class="date-text">2025. 12. 01. Mon</p>
+    </div>
+  
+    <div class="btn-wrap">
+      <a href="/#doz_menu_16" class="link-btn">ENTER</a>
+    </div>
+  </div> -->

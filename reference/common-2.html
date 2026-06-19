@@ -1,0 +1,271 @@
+<style>
+  @media (max-width: 994px) {
+    .sc-footer {
+      width: calc(100% - 30px) !important;
+      margin: 15px auto 0 !important;
+    }
+    .sc-footer .group-info {
+      margin-top: 0 !important;
+      flex-direction: column;
+    }
+    .sc-footer .group-info:nth-child(1) {
+      margin-bottom: 50px;
+      gap: 50px !important;
+    }
+    .sc-footer .group-info .logo {
+      width: 100% !important;
+    }
+    .sc-footer .group-info .group-contact {
+      width: 100% !important;
+    }
+    .sc-footer .group-info .group-contact .contact {
+      font-size: 18px !important;
+    }
+    .sc-footer .group-info .group-contact .info-box {
+      margin-top: 15px !important;
+    }
+    .sc-footer .group-info .group-contact .info-box .title {
+      font-size: 14px !important;
+    }
+    .sc-footer .group-info .group-contact .info-box .text {
+      font-size: 14px !important;
+    }
+
+    .sc-footer .group-info .group-contact .info-box.sns .sns-list {
+      gap: 15px !important;
+    }
+    .sc-footer .group-info .group-contact .info-box.sns a {
+      width: 25px !important;
+      height: 25px !important;
+    }
+
+    .sc-footer .group-info:nth-child(2) {
+      gap: 10px !important;
+    }
+    .sc-footer .group-info .btn-area {
+      width: 100% !important;
+      flex-direction: column;
+    }
+    .sc-footer .group-info .btn-area a {
+      width: 100% !important;
+      font-size: 14px !important;
+      padding: 15px 15px !important;
+      justify-content: flex-start !important;
+    }
+    .sc-footer .group-info .btn-area a img {
+      width: 20px !important;
+      height: 20px !important;
+    }
+    .sc-footer .group-info .btn-area a:hover {
+      border: 1px solid rgba(188, 171, 145, 1);
+    }
+    .sc-footer .group-info .reserve-btn {
+      width: 100% !important;
+    }
+    .sc-footer .group-info .reserve-btn a {
+      font-size: 14px !important;
+      padding: 10px !important;
+    }
+
+    .sc-footer .terms-area {
+      margin-top: 60px !important;
+    }
+    .sc-footer .terms-area p,
+    .sc-footer .terms-area a {
+      font-size: 12px !important;
+      padding: 10px 0 !important;
+      line-height: 1.2;
+    }
+  }
+
+  .sc-footer {
+    width: calc(100% - 100px);
+    margin: 0px auto 0;
+  }
+
+  .sc-footer .group-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 10%;
+  }
+  .sc-footer .group-info .logo {
+    width: 60%;
+  }
+  .sc-footer .group-info .logo img {
+    width: 100%;
+  }
+
+  .sc-footer .group-info .group-contact {
+    width: 30%;
+  }
+  .sc-footer .group-info .group-contact .contact {
+    font-family: "Marcellus", serif;
+    font-size: 26px;
+    color: #bcab91;
+    font-weight: 500;
+  }
+  .sc-footer .group-info .group-contact .info-box {
+    margin-top: 30px;
+  }
+  .sc-footer .group-info .group-contact .info-box .title {
+    font-family: "Marcellus", serif;
+    font-size: 16px;
+    color: #bcab91;
+    font-weight: 500;
+  }
+  .sc-footer .group-info .group-contact .info-box .text {
+    font-size: 16px;
+    color: #bcab91;
+  }
+  .sc-footer .group-info .group-contact .info-box.sns .sns-list {
+    display: flex;
+    gap: 20px;
+  }
+  .sc-footer .group-info .group-contact .info-box.sns a {
+    width: 35px;
+    height: 35px;
+    display: block;
+  }
+  .sc-footer .group-info .group-contact .info-box.sns a img {
+    width: 100%;
+  }
+
+  .sc-footer .group-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 10%;
+    margin-top: 120px;
+  }
+  .sc-footer .group-info .btn-area {
+    width: 60%;
+    display: flex;
+    gap: 10px;
+  }
+  .sc-footer .group-info .btn-area a {
+    width: calc((100% - 30px) / 4);
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: Center;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    background: rgba(188, 171, 145, 0.15);
+    border: 1px solid rgba(188, 171, 145, 0.2);
+    color: #bcab91;
+    padding: 20px 5px;
+    transition: 0.7s;
+  }
+  .sc-footer .group-info .btn-area a img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+  .sc-footer .group-info .btn-area a:hover {
+    border: 1px solid rgba(188, 171, 145, 1);
+  }
+  .sc-footer .group-info .reserve-btn {
+    width: 30%;
+  }
+  .sc-footer .group-info .reserve-btn a {
+    width: 100%;
+    color: #0c0700;
+    font-weight: 500;
+    font-size: 16px;
+    display: block;
+    text-align: center;
+    background: #bcab91;
+    padding: 20px 5px;
+    font-family: "Marcellus", serif;
+    letter-spacing: 3px;
+    transition: 0.7s;
+  }
+  .sc-footer .group-info .reserve-btn:hover a {
+    letter-spacing: 0px;
+    background: #887961;
+  }
+
+  .sc-footer .terms-area {
+    border-top: 1px solid rgba(188, 171, 145, 0.2);
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .sc-footer .terms-area p,
+  .sc-footer .terms-area a {
+    font-family: "Marcellus", serif;
+    color: #bcab91;
+    padding: 20px;
+  }
+</style>
+
+<div class="sc-footer">
+  <!-- 하단 정보 -->
+  <div class="group-info">
+    <div class="logo">
+      <img src="https://cdn.imweb.me/thumbnail/20251013/1ba74736932d4.png" />
+    </div>
+
+    <div class="group-contact">
+      <p class="contact">CONTACT US</p>
+      <div class="info-box">
+        <p class="title">E-MAIL</p>
+        <p class="text">korispabohol@gmail.com</p>
+      </div>
+      <div class="info-box">
+        <p class="title">TEL</p>
+        <p class="text">010-4671-3429</p>
+      </div>
+      <div class="info-box">
+        <p class="title">OFFICE</p>
+        <p class="text">Kori spa, Purok 5, Barangay Danao, Panglao, Bohol</p>
+      </div>
+      <!--
+        <div class="info-box sns">
+          <p class="title">SNS</p>
+          <div class="sns-list">
+            <a href="" target="_blank"><img src="https://cdn.imweb.me/thumbnail/20251015/92a7ee12f3017.png"></a>
+            <a href="" target="_blank"><img src="https://cdn.imweb.me/thumbnail/20251015/68d05dfd91c82.png"></a>
+            <a href="" target="_blank"><img src="https://cdn.imweb.me/thumbnail/20251015/2cd88858cd8dc.png"></a>
+            <a href="" target="_blank"><img src="https://cdn.imweb.me/thumbnail/20251015/3bb9829b6f071.png"></a>
+          </div>
+        </div>
+        -->
+    </div>
+  </div>
+
+  <!-- 하단 버튼 -->
+  <div class="group-info">
+    <div class="btn-area">
+      <!--
+        <a href="" target="_blank"><img src="https://cdn.imweb.me/thumbnail/20251015/92a7ee12f3017.png">페이스북으로 상담하기</a>
+        -->
+      <a href="http://pf.kakao.com/_BVSxkn/chat" target="_blank"
+        ><img
+          src="https://cdn.imweb.me/thumbnail/20251015/68d05dfd91c82.png"
+        />카카오톡으로 상담하기</a
+      >
+      <!--
+        <a href="" target="_blank"><img src="https://cdn.imweb.me/thumbnail/20251015/3bb9829b6f071.png">라인으로 상담하기</a>
+        -->
+      <a href="http://pf.kakao.com/_BVSxkn/chat" target="_blank"
+        ><img
+          src="https://cdn.imweb.me/thumbnail/20251015/2cd88858cd8dc.png"
+        />왓츠앱으로 상담하기</a
+      >
+    </div>
+
+    <!--
+      <div class="reserve-btn">
+        <a href="/22">RESERVATION</a>
+      </div>
+      -->
+  </div>
+
+  <!-- 하단 약관 -->
+  <div class="terms-area">
+    <p>©2025 kori spa. All rights reserved.</p>
+    <a href="/?mode=policy">Terms of service</a>
+    <a href="/?mode=privacy">Privacy Policy</a>
+  </div>
+</div>

@@ -1,0 +1,304 @@
+<script>
+  $(function () {
+    const servicetargets = [".sc-service .service-area"];
+
+    servicetargets.forEach((sel) => {
+      ScrollTrigger.create({
+        trigger: ".sc-service",
+        start: "0% 40%",
+        end: "200% 100%",
+        toggleClass: { targets: sel, className: "on" },
+      });
+    });
+  });
+</script>
+
+<style>
+  @media (max-width: 994px) {
+    .sc-service {
+      height: auto !important;
+      flex-direction: column !important;
+    }
+    .sc-service .service-area {
+      width: 100% !important;
+      height: 560px !important;
+      padding: 15px !important;
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.1) 0%,
+        rgba(0, 0, 0, 0.3) 100%
+      ) !important;
+    }
+    .sc-service .service-area .wrapper {
+      bottom: 30px !important;
+      transform: translate(-50%, 0);
+      left: 50% !important;
+      width: calc(100% - 30px) !important;
+    }
+    .sc-service .service-area:hover .wrapper {
+      bottom: 30px !important;
+    }
+    .sc-service .service-area .title-wrap .kor {
+      font-size: 15px !important;
+      text-align: center;
+    }
+    .sc-service .service-area .title-wrap .title {
+      font-size: 36px !important;
+      text-align: center;
+    }
+    .sc-service .service-area .cont-wrap {
+      opacity: 1 !important;
+    }
+    .sc-service .service-area .cont-wrap .cont {
+      font-size: 15px !important;
+      text-align: center;
+    }
+    .sc-service .service-area .cont-wrap .hash-box {
+      justify-content: center !important;
+    }
+    .sc-service .service-area .cont-wrap .hash-box .hash {
+      font-size: 13px !important;
+      padding: 1px 5px;
+    }
+    .sc-service .service-area .btn-wrap {
+      opacity: 1 !important;
+    }
+    .sc-service .service-area .btn-wrap a {
+      font-size: 14px !important;
+      padding: 10px !important;
+    }
+  }
+
+  .sc-service {
+    width: 100%;
+    height: calc(100vh - 80px);
+    display: flex;
+    justify-content: space-between;
+  }
+  .sc-service .service-area {
+    width: calc(100% / 3);
+    height: 100%;
+    position: relative;
+    padding: 50px;
+    transition: 1.2s;
+    position: relative;
+    overflow: hidden; /* 확대될 때 넘치는 부분 잘라줌 */
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+  }
+  .sc-service .service-area::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    inset: 0;
+    transition: 1.2s;
+    z-index: -2;
+  }
+  .sc-service .service-area:nth-child(1)::before {
+    background: url("https://cdn.imweb.me/thumbnail/20251121/645545bd36fd8.jpeg")
+      center/cover no-repeat;
+  }
+  .sc-service .service-area:nth-child(2)::before {
+    background: url("https://cdn.imweb.me/thumbnail/20251121/b89b42b75532c.jpeg")
+      center/cover no-repeat;
+  }
+  .sc-service .service-area:nth-child(3)::before {
+    background: url("https://cdn.imweb.me/thumbnail/20251121/6bae1fa5b6af4.jpeg")
+      center/cover no-repeat;
+  }
+
+  .sc-service .service-area:hover::before {
+    transform: scale(1.1); /* cover 유지하면서 확대 */
+  }
+
+  .sc-service .service-area::after {
+    content: "";
+    width: 100%;
+    height: 300%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.4) 0%,
+      rgba(0, 0, 0, 0.8) 100%
+    );
+    background-size: 100% 100%;
+    pointer-events: none;
+    transition: 1.2s;
+    z-index: -1;
+  }
+  .sc-service .service-area:hover::after {
+    height: 100%;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.4) 0%,
+      rgba(0, 0, 0, 0.8) 100%
+    );
+  }
+
+  .sc-service .service-area .wrapper {
+    position: absolute;
+    bottom: -130px;
+    left: 50px;
+    width: calc(100% - 100px);
+    filter: blur(10px);
+    transition: 1.2s;
+    opacity: 0;
+  }
+  .sc-service .service-area.on .wrapper {
+    filter: blur(0px);
+    opacity: 1;
+  }
+  .sc-service .service-area:hover .wrapper {
+    bottom: 50px;
+  }
+  .sc-service .service-area .title-wrap,
+  .sc-service .service-area .cont-wrap,
+  .sc-service .service-area .btn-wrap {
+    color: #fff;
+    z-index: 10;
+  }
+  .sc-service .service-area .title-wrap {
+    transition: 0.8s;
+  }
+  .sc-service .service-area .title-wrap .kor {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+  }
+  .sc-service .service-area .title-wrap .title {
+    font-size: 60px;
+    font-weight: 400;
+    line-height: 1.1;
+    font-family: "Marcellus", serif;
+  }
+
+  .sc-service .service-area .cont-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: 1.2s;
+    opacity: 0;
+  }
+  .sc-service .service-area:hover .cont-wrap {
+    opacity: 1;
+  }
+  .sc-service .service-area .cont-wrap .cont {
+    letter-spacing: -0.5px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    transition: 1.2s;
+  }
+  .sc-service .service-area .cont-wrap .hash-box {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 30px;
+    opacity: 0.6;
+    transition: 0.5s;
+  }
+  .sc-service .service-area .cont-wrap .hash-box .hash {
+    font-size: 14px;
+    padding: 1px 5px;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+
+  .sc-service .service-area .btn-wrap {
+    width: 100%;
+    opacity: 0;
+    transition: 1.2s;
+  }
+  .sc-service .service-area:hover .btn-wrap {
+    opacity: 1;
+  }
+  .sc-service .service-area .btn-wrap a {
+    display: block;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+    padding: 15px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    transition: 0.5s;
+    font-family: "Marcellus", serif;
+  }
+  .sc-service .service-area .btn-wrap a:hover {
+    background: #bcab91;
+    border: 1px solid #bcab91;
+    letter-spacing: 0px;
+    color: #0c0700;
+  }
+</style>
+
+<div class="sc-service">
+  <div class="service-area">
+    <div class="wrapper">
+      <div class="title-wrap">
+        <p class="kor">첫날팩 패키지</p>
+        <h6 class="title">FIRST DAY</h6>
+      </div>
+      <div class="cont-wrap">
+        <p class="cont">
+          늦은 시간에 보홀에 도착하시는 분들을 위한<br />피로를 풀어주는 힐링
+          패키지
+        </p>
+        <div class="hash-box">
+          <span class="hash">90분</span>
+          <span class="hash">120분</span>
+        </div>
+      </div>
+      <div class="btn-wrap">
+        <a href="/firstday">VIEW DETAIL</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="service-area">
+    <div class="wrapper">
+      <div class="title-wrap">
+        <p class="kor">픽드롭 패키지</p>
+        <h6 class="title">PICK / DROP DAY</h6>
+      </div>
+      <div class="cont-wrap">
+        <p class="cont">원하는 시간에 픽업/드롭이 가능한<br />픽드롭 서비스</p>
+        <div class="hash-box">
+          <span class="hash">60분</span>
+          <span class="hash">90분</span>
+          <span class="hash">120분</span>
+        </div>
+      </div>
+      <div class="btn-wrap">
+        <a href="/daytime">VIEW DETAIL</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="service-area">
+    <div class="wrapper">
+      <div class="title-wrap">
+        <p class="kor">귀국 패키지</p>
+        <h6 class="title">LAST DAY</h6>
+      </div>
+      <div class="cont-wrap">
+        <p class="cont">
+          귀국날 피곤하고 지친 몸을 풀어줄 마사지와<br />자유로운 라운지 이용
+        </p>
+        <div class="hash-box">
+          <span class="hash">90분</span>
+          <span class="hash">120분</span>
+        </div>
+      </div>
+      <div class="btn-wrap">
+        <a href="/lastday">VIEW DETAIL</a>
+      </div>
+    </div>
+  </div>
+</div>

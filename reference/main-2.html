@@ -1,0 +1,137 @@
+<script>
+  window.addEventListener("load", function () {
+    if (window.innerWidth > 1024) {
+      // 👉 PC 전용 코드 실행
+      pcIntroMotion();
+    } else {
+      // 👉 모바일 전용 코드 실행
+      mobileIntroMotion();
+    }
+  });
+
+  function pcIntroMotion() {
+    gsap.set(".mui-intro .left", { right: "50%" });
+    gsap.set(".mui-intro .right", { left: "50%" });
+    gsap.set(".mui-intro .logo", { opacity: 1, filter: "blur(0px)" });
+
+    const introMotion1 = gsap.timeline({ paused: true });
+
+    introMotion1
+      .addLabel("a")
+      .to(".mui-intro .left", 2, { delay: 1, right: "100%" }, "a")
+      .to(".mui-intro .right", 2, { delay: 1, left: "100%" }, "a")
+      .to(
+        ".mui-intro .logo",
+        1,
+        { delay: 1, opacity: 0, filter: "blur(40px)" },
+        "a",
+      )
+      .to(".mui-intro", { "pointer-events": "none" });
+
+    introMotion1.play();
+  }
+
+  function mobileIntroMotion() {
+    // 👉 모바일 전용 motion 작성
+    gsap.set(".mui-intro .left", { top: "0%" });
+    gsap.set(".mui-intro .right", { top: "50%" });
+    // 예시로 delay 줄이거나 애니메이션 없애거나 커스텀 가능
+    const introMotion2 = gsap.timeline({ paused: true });
+
+    introMotion2
+      .addLabel("a")
+      .to(".mui-intro .left", 2, { delay: 1, top: "-50%" }, "a")
+      .to(".mui-intro .right", 2, { delay: 1, top: "100%" }, "a")
+      .to(
+        ".mui-intro .logo",
+        1,
+        { delay: 1, opacity: 0, filter: "blur(40px)" },
+        "a",
+      )
+      .to(".mui-intro", { "pointer-events": "none" });
+
+    introMotion2.play();
+  }
+</script>
+
+<style>
+  @media (max-width: 994px) {
+    .mui-intro {
+      display: none;
+
+      height: 100vh;
+      z-index: 1000000000 !important;
+    }
+    .mui-intro .bg-box img {
+      width: 100% !important;
+      height: 50% !important;
+    }
+    .mui-intro .bg-box img.left {
+      right: 0;
+      top: 0;
+    }
+    .mui-intro .bg-box img.right {
+      left: 0% !important;
+      top: 50%;
+    }
+    .mui-intro .logo {
+      width: 35vw !important;
+    }
+  }
+
+  .mui-intro {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 10000000;
+    visibility: visible;
+    opacity: 1;
+  }
+  .mui-intro .bg-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+  }
+  .mui-intro .bg-box img {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .mui-intro .bg-box img.left {
+    right: 0;
+  }
+  .mui-intro .bg-box img.right {
+    left: 50%;
+  }
+  .mui-intro .logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 274px;
+  }
+</style>
+
+<div class="mui-intro">
+  <div class="bg-box">
+    <img
+      src="https://cdn.imweb.me/thumbnail/20251015/c7b583948eac3.png"
+      class="left"
+    />
+    <img
+      src="https://cdn.imweb.me/thumbnail/20251015/c7b583948eac3.png"
+      class="right"
+    />
+  </div>
+  <img
+    src="https://cdn.imweb.me/thumbnail/20251015/79a3a8752db1a.png"
+    class="logo"
+  />
+</div>

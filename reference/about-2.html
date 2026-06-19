@@ -1,0 +1,262 @@
+<script>
+  $(function () {
+    gsap.set(".sc-brand .group-brand.first img.left", {
+      y: 60,
+      opacity: 0,
+      filter: "blur(5px)",
+    });
+    gsap.set(".sc-brand .group-brand.first img.right", {
+      y: -60,
+      opacity: 0,
+      filter: "blur(5px)",
+    });
+    gsap.set(".sc-brand .group-brand.first .cont-area", {
+      opacity: 0,
+      filter: "blur(5px)",
+    });
+
+    gsap.set(".sc-brand .group-brand.second img.left", {
+      y: 60,
+      opacity: 0,
+      filter: "blur(5px)",
+    });
+    gsap.set(".sc-brand .group-brand.second img.right", {
+      y: -60,
+      opacity: 0,
+      filter: "blur(5px)",
+    });
+    gsap.set(".sc-brand .group-brand.second .cont-area", {
+      opacity: 0,
+      filter: "blur(5px)",
+    });
+
+    let brandmotion = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".sc-brand",
+        start: "-80px 0%",
+        end: "300% 100%",
+        pin: true,
+        scrub: true,
+      },
+    });
+
+    brandmotion
+      .addLabel("a")
+      .to(
+        ".sc-brand .group-brand.first img.left",
+        1.2,
+        { y: 0, opacity: 1, filter: "blur(0px)" },
+        "a",
+      )
+      .to(
+        ".sc-brand .group-brand.first img.right",
+        1.2,
+        { y: 0, opacity: 1, filter: "blur(0px)" },
+        "a",
+      )
+      .to(
+        ".sc-brand .group-brand.first .cont-area",
+        1.2,
+        { opacity: 1, filter: "blur(0px)" },
+        "a",
+      )
+
+      .addLabel("b")
+      .to(
+        ".sc-brand .group-brand.first img.left",
+        1,
+        { y: -60, opacity: 0, filter: "blur(5px)" },
+        "b",
+      )
+      .to(
+        ".sc-brand .group-brand.first img.right",
+        1,
+        { y: 60, opacity: 0, filter: "blur(5px)" },
+        "b",
+      )
+      .to(
+        ".sc-brand .group-brand.first .cont-area",
+        1,
+        { opacity: 0, filter: "blur(5px)" },
+        "b",
+      )
+
+      .to(
+        ".sc-brand .group-brand.second img.left",
+        1.2,
+        { y: 0, opacity: 1, filter: "blur(0px)" },
+        "b",
+      )
+      .to(
+        ".sc-brand .group-brand.second img.right",
+        1.2,
+        { y: 0, opacity: 1, filter: "blur(0px)" },
+        "b",
+      )
+      .to(
+        ".sc-brand .group-brand.second .cont-area",
+        1.2,
+        { opacity: 1, filter: "blur(0px)" },
+        "b",
+      );
+  });
+</script>
+
+<style>
+  @media (max-width: 994px) {
+    .pin-spacer {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+    .sc-brand {
+      width: calc(100% - 30px) !important;
+      height: calc(100vh - 120px) !important;
+    }
+    .sc-brand .group-brand {
+      flex-direction: column;
+      justify-content: space-around !important;
+    }
+    .sc-brand .group-brand img {
+      width: 90% !important;
+      height: 140px !important;
+      object-fit: cover;
+    }
+    .sc-brand .group-brand img.left {
+      margin-bottom: 0px !important;
+    }
+    .sc-brand .group-brand img.right {
+      margin-top: 0px !important;
+    }
+
+    .sc-brand .group-brand .cont-area .number {
+      font-size: 14px !important;
+      text-decoration: underline;
+      margin-bottom: 15px !important;
+    }
+    .sc-brand .group-brand .cont-area .main-box .title {
+      font-size: 42px !important;
+    }
+    .sc-brand .group-brand .cont-area .main-box .sub-box {
+      font-size: 16px !important;
+    }
+    .sc-brand .group-brand .cont-area .main-box .sub-box .kor,
+    .sc-brand .group-brand .cont-area .main-box .sub-box .eng {
+      margin: 0 !important;
+    }
+    .sc-brand .group-brand .cont-area .main-box .sub {
+      font-size: 16px !important;
+      margin-top: 15px !important;
+    }
+  }
+
+  .sc-brand {
+    width: calc(100% - 300px);
+    height: calc(100vh - 80px);
+    margin: 0 auto;
+    position: relative;
+    top: 0;
+  }
+  .sc-brand .group-brand {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .sc-brand .group-brand img {
+    width: 27%;
+  }
+  .sc-brand .group-brand img.left {
+    margin-bottom: 160px;
+  }
+  .sc-brand .group-brand img.right {
+    margin-top: 160px;
+  }
+
+  .sc-brand .group-brand .cont-area {
+    text-align: center;
+    color: #2d2618;
+  }
+  .sc-brand .group-brand .cont-area .number {
+    font-family: "Marcellus", serif;
+    font-size: 16px;
+    text-decoration: underline;
+    margin-bottom: 50px;
+  }
+  .sc-brand .group-brand .cont-area .main-box .title {
+    font-family: "Marcellus", serif;
+    font-size: 100px;
+  }
+  .sc-brand .group-brand .cont-area .main-box .sub-box {
+    font-size: 18px;
+  }
+  .sc-brand .group-brand .cont-area .main-box .sub-box .kor {
+    font-weight: 800;
+  }
+  .sc-brand .group-brand .cont-area .main-box .sub {
+    font-size: 18px;
+    letter-spacing: -0.5px;
+    line-height: 1.6;
+    margin-top: 30px;
+  }
+</style>
+
+<div class="sc-brand">
+  <div class="group-brand first">
+    <img
+      src="https://cdn.imweb.me/thumbnail/20251121/57ff504a48733.png"
+      class="left"
+    />
+
+    <div class="cont-area">
+      <p class="number">BRAND PHILOSOPHY #1</p>
+
+      <div class="main-box">
+        <p class="title">精神</p>
+        <div class="sub-box">
+          <p class="kor">오모테나시</p>
+          <p class="eng">[ 일본 전통의 환대 ]</p>
+        </div>
+        <p class="sub">
+          한 분 한 분의 컨디션과 감정에 집중합니다.<br />
+          눈치채기 어려운 작은 피로까지,<br />
+          저희는 발견하고 먼저 다가갑니다.
+        </p>
+      </div>
+    </div>
+
+    <img
+      src="https://cdn.imweb.me/thumbnail/20251121/cfb2cdeb2c8d8.png"
+      class="right"
+    />
+  </div>
+
+  <div class="group-brand second">
+    <img
+      src="https://cdn.imweb.me/thumbnail/20251013/81b3442326ab8.png"
+      class="left"
+    />
+    <div class="cont-area">
+      <p class="number">BRAND PHILOSOPHY #2</p>
+
+      <div class="main-box">
+        <p class="title">わさび</p>
+        <div class="sub-box">
+          <p class="kor">와비사비</p>
+          <p class="eng">[ 불완전함 속의 아름다움 ]</p>
+        </div>
+        <p class="sub">
+          화려하지 않아도 좋습니다.<br />
+          조용한 공간, 느린 시간, 단순한 선에서<br />
+          진정한 회복이 시작됩니다.
+        </p>
+      </div>
+    </div>
+
+    <img
+      src="https://cdn.imweb.me/thumbnail/20251121/9b7cb7fefb076.png"
+      class="right"
+    />
+  </div>
+</div>
